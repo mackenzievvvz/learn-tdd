@@ -49,10 +49,12 @@ should be placed in `tests/authorService.test.ts`.
 
 Briefly explain a limitation of the tests in `tests/authorSchema.test.ts` in the space below.
 
-
+- Since author schema is testing very specific things like invalid/valid authors and sorting of authors, each of the tests will need to be updated whenever the author schema is updated itself. Also, since everything is mocked, we cannot see how author schema actually interacts with mongoose and that they are both synced.
 
 ## Part 3
 
 Generate the coverage report for the tests you wrote. How can you improve
 your tests using the coverage report? Briefly explain your 
 process in the space below.
+
+- we can look at the "Uncovered Line #s" to see which lines are not covered; that is, they do not have a test case written for them. For example, pages/books.ts does not have coverage for lines 9-16,25-29, which correspond to the showBooks async function and the GET /books endpoint. We can solve this by writing tests for thos functions.
